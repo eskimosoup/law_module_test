@@ -1,9 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  rescue_from Exception, with: -> { render_error(404) } unless Rails.application.config.consider_all_requests_local
-  rescue_from ActiveRecord::RecordNotFound, with: -> { render_error(404) } unless Rails.application.config.consider_all_requests_local
-  rescue_from ActionController::RoutingError, with: -> { render_error(404) } unless Rails.application.config.consider_all_requests_local
+  unless Rails.application.config.consider_all_requests_local
+    rescue_from Exception, with: -> { render_error(404) }
+    rescue_from ActiveRecord::RecordNotFound, with: -> { render_error(404) }
+    rescue_from ActionController::RoutingError, with: -> { render_error(404) }
+  end
 
   def index
   end
