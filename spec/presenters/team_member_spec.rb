@@ -14,6 +14,18 @@ RSpec.describe TeamMemberPresenter, type: :presenter, team_member: true do
     it "returns the name" do
       expect(team_member_presenter.full_name).to eq([team_member.forename, team_member.surname].join(' '))
     end
+
+    it "returns the Google Plus link" do
+      expect(team_member_presenter.linked_google_plus('Google+', { title: 'Google+', target: '_blank' })).to eq(link_to 'Google+', team_member.google_plus, title: 'Google+', target: '_blank')
+    end
+
+    it "returns the Twitter link" do
+      expect(team_member_presenter.linked_twitter('Follow me on Twitter', { title: 'Follow me on Twitter', target: '_blank' })).to eq(link_to 'Follow me on Twitter', team_member.twitter_link, title: 'Follow me on Twitter',  target: '_blank')
+    end
+
+    it "returns the Facebook link" do
+      expect(team_member_presenter.linked_twitter('Add me on Facebook', { title: 'Add me on Facebook', target: '_blank' })).to eq(link_to 'Add me on Facebook', team_member.facebook_link, title: 'Add me on Facebook',  target: '_blank')
+    end
   end
 
   describe "images" do
