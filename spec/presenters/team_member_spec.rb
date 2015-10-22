@@ -1,0 +1,42 @@
+require "rails_helper"
+#  rspec --tag "team_member"
+RSpec.describe TeamMemberPresenter, type: :presenter, team_member: true do
+  let(:team_member) { build(:team_member) }
+  subject(:team_member_presenter) { TeamMemberPresenter.new(object: team_member, view_template: view)}
+
+  describe "delegations", :delegation do
+    it { should delegate_method(:forename).to(:team_member) }
+    it { should delegate_method(:surname).to(:team_member) }
+    it { should delegate_method(:role).to(:team_member) }
+  end
+
+  describe "standard team_member" do
+    it "returns the name" do
+      expect(team_member_presenter.full_name).to eq([team_member.forename, team_member.surname].join(' '))
+    end
+  end
+
+  describe "images" do
+    describe "no image" do
+      it "show_image should return nil" do
+        expect(team_member_presenter.show_image).to eq(nil)
+      end
+      it "index_image should return nil" do
+        expect(team_member_presenter.index_image).to eq(nil)
+      end
+    end
+
+    describe "has image" do
+      let(:team_member) { build(:team_member_with_image) }
+      subject(:team_member_presenter) { TeamMemberPresenter.new(object: team_member, view_template: view)}
+
+      it "show_image should not return nil" do
+        expect(team_member_presenter.show_image(alt: team_member_presenter.full_name)).to eq(image_tag(team_member.image.show, alt: [team_member.forename, team_member.surname].join(' ')))
+      end
+
+      it "index image should not return nil" do
+        expect(team_member_presenter.index_image(alt: team_member_presenter.full_name)).to eq(image_tag(team_member.image.index, alt: [team_member.forename, team_member.surname].join(' ')))
+      end
+    end
+  end
+end

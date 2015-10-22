@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151022104139) do
+ActiveRecord::Schema.define(version: 20151022105935) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "features", force: :cascade do |t|
+    t.string   "key",                        null: false
+    t.boolean  "enabled",    default: false, null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -111,6 +118,32 @@ ActiveRecord::Schema.define(version: 20151022104139) do
     t.string "key"
     t.string "value"
     t.string "environment"
+  end
+
+  create_table "team_members", force: :cascade do |t|
+    t.integer  "position"
+    t.string   "forename",                           null: false
+    t.string   "surname",                            null: false
+    t.string   "role",                               null: false
+    t.string   "image"
+    t.string   "primary_telephone"
+    t.string   "secondary_telephone"
+    t.string   "email_address"
+    t.datetime "display_from"
+    t.datetime "display_until"
+    t.boolean  "display",             default: true
+    t.text     "specialisms"
+    t.boolean  "has_vcard_download"
+    t.text     "profile"
+    t.string   "google_plus"
+    t.string   "twitter_link"
+    t.string   "facebook_link"
+    t.string   "mobile_number"
+    t.string   "dx_number"
+    t.string   "suggested_url"
+    t.string   "slug"
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
   end
 
 end

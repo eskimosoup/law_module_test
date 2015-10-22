@@ -67,8 +67,10 @@ group :development do
   gem 'flamegraph', '~> 0.1.0'
   gem 'stackprof', '~> 0.2.7'
   gem 'bullet', '~> 4.14.7'
+  gem 'poltergeist' 
 end
 
 gem 'optimadmin', git: 'git@github.com:eskimosoup/Optimadmin.git', branch: 'master'
 gem 'friendly_id', '~> 5.1.0'
 gem 'therubyracer', platforms: :ruby
+gem 'flip'
