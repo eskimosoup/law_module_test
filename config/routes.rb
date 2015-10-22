@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :team_members, only: [:index, :show], path: 'team-members'
+
   %w( 403 404 422 500 ).each do |code|
     get code, to: 'errors#show', code: code
   end
@@ -11,6 +13,10 @@ Rails.application.routes.draw do
   match "*path", to: "errors#show", via: :all, code: 404 unless Rails.application.config.consider_all_requests_local
 end
 Optimadmin::Engine.routes.draw do
+  get 'team_members/index'
+
+  get 'team_members/show'
+
   resources :team_members, except: [:show] do
     collection do
       post 'order'
