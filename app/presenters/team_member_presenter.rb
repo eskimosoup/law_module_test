@@ -1,9 +1,17 @@
 class TeamMemberPresenter < BasePresenter
   presents :team_member
-  delegate :forename, :surname, :role, to: :team_member
+  delegate :forename, :surname, :role, :primary_telephone, :secondary_telephone, :email_address, to: :team_member
 
   def full_name
     [forename, surname].join(' ')
+  end
+
+  def linked_email_address
+    h.mail_to team_member.email_address
+  end
+
+  def specialisms
+    h.raw team_member.specialisms
   end
 
   def linked_google_plus(text = 'Google+', options = {})

@@ -7,7 +7,7 @@ FactoryGirl.define do
     secondary_telephone "MyString"
     email_address "MyString"
     display true
-    specialisms "MyText"
+    specialisms "<p>MyText</p>"
     has_vcard_download false
     profile "<p>MyText</p>"
     google_plus "MyString"

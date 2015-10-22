@@ -8,6 +8,8 @@ RSpec.describe TeamMemberPresenter, type: :presenter, team_member: true do
     it { should delegate_method(:forename).to(:team_member) }
     it { should delegate_method(:surname).to(:team_member) }
     it { should delegate_method(:role).to(:team_member) }
+    it { should delegate_method(:primary_telephone).to(:team_member) }
+    it { should delegate_method(:secondary_telephone).to(:team_member) }
   end
 
   describe "standard team_member" do
@@ -29,6 +31,14 @@ RSpec.describe TeamMemberPresenter, type: :presenter, team_member: true do
 
     it "returns the html formatted profile" do
       expect(team_member_presenter.profile).to eq(raw team_member.profile)
+    end
+
+    it "returns the html formatted specialisms" do
+      expect(team_member_presenter.specialisms).to eq(raw team_member.specialisms)
+    end
+
+    it "returns the mail_to email" do
+      expect(team_member_presenter.linked_email_address).to eq(mail_to team_member.email_address)
     end
 
     it "returns the dx number" do
