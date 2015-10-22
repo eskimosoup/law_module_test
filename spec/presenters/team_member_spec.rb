@@ -17,6 +17,10 @@ RSpec.describe TeamMemberPresenter, type: :presenter, team_member: true do
       expect(team_member_presenter.full_name).to eq([team_member.forename, team_member.surname].join(' '))
     end
 
+    it "returns the vcard link" do
+      expect(team_member_presenter.vcard).to eq(link_to 'Download vCard', '#')
+    end
+
     it "returns the Google Plus link" do
       expect(team_member_presenter.linked_google_plus('Google+', { title: 'Google+', target: '_blank' })).to eq(link_to 'Google+', team_member.google_plus, title: 'Google+', target: '_blank')
     end
