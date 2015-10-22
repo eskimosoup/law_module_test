@@ -21,7 +21,7 @@ class Feature < ActiveRecord::Base
     default: true
   feature :team_member_facebook_link,
     default: true
-  feature :team_member_mobile,
+  feature :team_member_mobile_number,
     default: true,
     description: 'Allow team members to have a mobile number'
   feature :team_member_dx_number,

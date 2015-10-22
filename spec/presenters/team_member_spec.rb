@@ -26,6 +26,18 @@ RSpec.describe TeamMemberPresenter, type: :presenter, team_member: true do
     it "returns the Facebook link" do
       expect(team_member_presenter.linked_twitter('Add me on Facebook', { title: 'Add me on Facebook', target: '_blank' })).to eq(link_to 'Add me on Facebook', team_member.facebook_link, title: 'Add me on Facebook',  target: '_blank')
     end
+
+    it "returns the html formatted profile" do
+      expect(team_member_presenter.profile).to eq(raw team_member.profile)
+    end
+
+    it "returns the dx number" do
+      expect(team_member_presenter.dx_number).to eq(team_member.dx_number)
+    end
+
+    it "returns the mobile" do
+      expect(team_member_presenter.mobile_number).to eq(team_member.mobile_number)
+    end
   end
 
   describe "images" do

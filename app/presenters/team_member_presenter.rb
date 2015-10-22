@@ -17,4 +17,20 @@ class TeamMemberPresenter < BasePresenter
   def linked_facebook(text = 'Add me on Facebook', options = {})
     h.link_to text, team_member.facebook_link, options if Flip.team_member_facebook_link?
   end
+
+  def profile
+    h.raw team_member.profile if Flip.team_member_profile?
+  end
+
+  def vcard
+    h.link_to 'Download vCard', '#' if Flip.team_member_vcard?
+  end
+
+  def mobile_number
+    team_member.mobile_number if Flip.team_member_mobile_number?
+  end
+
+  def dx_number
+    team_member.dx_number if Flip.team_member_dx_number?
+  end
 end

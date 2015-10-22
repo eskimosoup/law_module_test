@@ -9,7 +9,7 @@ FactoryGirl.define do
     display true
     specialisms "MyText"
     has_vcard_download false
-    profile "MyText"
+    profile "<p>MyText</p>"
     google_plus "MyString"
     twitter_link "MyString"
     facebook_link "MyString"
