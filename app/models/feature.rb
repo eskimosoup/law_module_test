@@ -10,7 +10,7 @@ class Feature < ActiveRecord::Base
   # Please use this format: <model_name>_<field_name>
   # For features: <model_name>_feature_<feature_name>
 
-  feature :team_member_vcard,
+  feature :team_member_vcard_download,
     default: true
   feature :team_member_profile,
     default: true,

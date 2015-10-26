@@ -117,7 +117,7 @@
         <%= f.check_box :display %>
       </div>
 
-      <% if Flip.team_member_vcards? %>
+      <% if Flip.team_member_vcard_download? %>
         <div class="field">
           <%= f.label :has_vcard_download %><br>
           <%= f.check_box :has_vcard_download %>
