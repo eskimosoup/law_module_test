@@ -14,7 +14,7 @@ class TeamMember < ActiveRecord::Base
               }
 
   scope :positioned, -> { order(:position) }
-  scope :displayed, -> { where("(display_from <= :today OR display_from IS NULL) AND (display_until >= :today OR display_until IS NULL) AND (display = :true)", today: Time.now, true: true) }
+  scope :displayed, -> { where('(display_from <= :today OR display_from IS NULL) AND (display_until >= :today OR display_until IS NULL) AND (display = :true)', today: Time.now, true: true) }
   # http://stackoverflow.com/a/11219778
   scope :name_search, ->(keywords) { where("coalesce(forename, '') || ' ' || coalesce(surname, '') ilike '%' || ? || '%'", keywords) if keywords }
 

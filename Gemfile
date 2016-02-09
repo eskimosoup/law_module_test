@@ -1,8 +1,7 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.4'
+gem 'rails', '4.2.5.1'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -57,6 +56,7 @@ group :test do
   gem 'capybara', '~> 2.5.0'
   gem 'launchy', '~> 2.4.3'
   gem 'selenium-webdriver'
+  gem 'simplecov', require: false
 end
 
 group :development do
@@ -67,7 +67,7 @@ group :development do
   gem 'flamegraph', '~> 0.1.0'
   gem 'stackprof', '~> 0.2.7'
   gem 'bullet', '~> 4.14.7'
-  gem 'poltergeist' 
+  gem 'poltergeist'
 end
 
 gem 'optimadmin', git: 'git@github.com:eskimosoup/Optimadmin.git', branch: 'master'
