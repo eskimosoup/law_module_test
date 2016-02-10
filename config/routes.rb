@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :articles, only: [:index, :show]
   resources :team_members, only: [:index, :show], path: 'team-members'
 
   %w( 403 404 422 500 ).each do |code|

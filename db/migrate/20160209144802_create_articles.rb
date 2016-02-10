@@ -12,6 +12,7 @@ class CreateArticles < ActiveRecord::Migration
       t.string :suggested_url, null: true, unique: true
       t.boolean :display, null: false, default: true
       t.boolean :home_page_highlight, null: false, default: true
+      t.string :slug, null: true, unique: true
 
       t.timestamps null: false
     end

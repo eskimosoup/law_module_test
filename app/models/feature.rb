@@ -27,4 +27,10 @@ class Feature < ActiveRecord::Base
   feature :team_member_dx_number,
     default: true,
     description: 'Allow team members to have a DX number'
+  feature :article_home_page_highlight,
+    default: true,
+    description: 'Determine if certain articles can be used on the home page'
+  feature :article_social_share_features,
+    default: true,
+    description: 'Add in customisable OpenGraph fields (title, desc., image)'
 end

@@ -70,7 +70,8 @@ group :development do
   gem 'poltergeist'
 end
 
-gem 'optimadmin', git: 'git@github.com:eskimosoup/Optimadmin.git', branch: 'master'
+#gem 'optimadmin', git: 'git@github.com:eskimosoup/Optimadmin.git', branch: 'master'
+gem 'optimadmin', path: '../optimadmin'
 gem 'friendly_id', '~> 5.1.0'
 gem 'therubyracer', platforms: :ruby
 gem 'flip'

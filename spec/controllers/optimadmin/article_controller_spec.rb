@@ -12,7 +12,7 @@ describe Optimadmin::ArticlesController, type: :controller do
         article = stub_valid_article
 
         post :create, commit: "Save", article: article.attributes
-
+        
         expect(response).to redirect_to(articles_path)
         expect(flash[:notice]).to eq("Article was successfully created.")
       end
@@ -69,23 +69,22 @@ describe Optimadmin::ArticlesController, type: :controller do
       end
     end
   end
-  
+
   def stub_valid_article
     article = build_stubbed(:article)
-    allow(AdditionalContent).to receive(:new).and_return(article)
+    allow(Article).to receive(:new).and_return(article)
     allow(article).to receive(:save).and_return(true)
-    allow(AdditionalContent).to receive(:find).and_return(article)
+    allow(Article).to receive(:find).and_return(article)
     allow(article).to receive(:update).and_return(true)
     article
   end
 
   def stub_invalid_article
     article = build_stubbed(:article)
-    allow(AdditionalContent).to receive(:new).and_return(article)
+    allow(Article).to receive(:new).and_return(article)
     allow(article).to receive(:save).and_return(false)
-    allow(AdditionalContent).to receive(:find).and_return(article)
+    allow(Article).to receive(:find).and_return(article)
     allow(article).to receive(:update).and_return(false)
     article
   end
 end
-
