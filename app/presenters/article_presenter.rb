@@ -2,7 +2,7 @@ class ArticlePresenter < BasePresenter
   presents :article
   delegate :title, to: :article
 
-  def linked_title(text = 'View', options = {})
+  def linked_text(text = 'View', options = {})
     h.link_to text, article, options
   end
 
@@ -12,6 +12,10 @@ class ArticlePresenter < BasePresenter
 
   def content
     h.raw article.content
+  end
+
+  def social_share_image
+    h.root_url[0..-2] + article.social_share_image.url if article.social_share_image
   end
 
   def social_share_title

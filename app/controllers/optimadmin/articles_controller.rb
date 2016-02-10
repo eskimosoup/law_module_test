@@ -44,8 +44,7 @@ module Optimadmin
       redirect_to articles_url, notice: 'Article was successfully destroyed.'
     end
 
-  private
-
+    private
 
     def set_article
       @article = Article.find(params[:id])

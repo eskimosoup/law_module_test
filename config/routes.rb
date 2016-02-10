@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   resources :articles, only: [:index, :show]
   resources :team_members, only: [:index, :show], path: 'team-members'
 
@@ -34,9 +33,6 @@ Optimadmin::Engine.routes.draw do
       get 'toggle'
     end
   end
-  get 'team_members/index'
-
-  get 'team_members/show'
 
   resources :team_members, except: [:show] do
     collection do
