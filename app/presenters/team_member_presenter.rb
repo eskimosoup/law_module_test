@@ -31,7 +31,7 @@ class TeamMemberPresenter < BasePresenter
   end
 
   def vcard
-    h.link_to 'Download vCard', '#' if Flip.team_member_vcard?
+    h.link_to 'Download vCard', '#' if Flip.team_member_vcard_download?
   end
 
   def mobile_number
