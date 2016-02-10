@@ -1,5 +1,4 @@
 class TeamMember < ActiveRecord::Base
-  include NullifyBlanks
   extend FriendlyId
   friendly_id :slug_candidates, use: [:slugged, :history]
 
