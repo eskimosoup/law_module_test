@@ -14,6 +14,7 @@ class Article < ActiveRecord::Base
   validate :future_date, if: proc { |x| x.date.present? }
 
   scope :displayed, -> { where('display = ? AND date <= ?', true, Date.today) }
+  scope :home_page_highlight, -> { where(home_page_highlight: true).displayed }
   scope :search, ->(title) { where(title: title) }
 
   def future_date

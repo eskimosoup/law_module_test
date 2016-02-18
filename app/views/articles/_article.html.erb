@@ -1,7 +1,8 @@
 <div class="article-index">
-<% present article do |article_presenter| %>
-  <%= article_presenter.linked_text(article_presenter.title, class: 'article-index-linked-title') %>
-  <%= article_presenter.index_image(alt: article_presenter.title, class: 'article-index-image') %>
-  <%= article_presenter.summary %>
-  <%= article_presenter.linked_text('Read more', class: 'article-index-read-more') %>
-<% end %>
+  <% present article do |article_presenter| %>
+    <%= article_presenter.linked_text(article_presenter.title, class: 'article-index-linked-title') %>
+    <%= article_presenter.index_image(alt: article_presenter.title, class: 'article-index-image') %>
+    <%= article_presenter.summary %>
+    <%= article_presenter.linked_text('Read more', class: 'article-index-read-more') %>
+  <% end %>
+</div>
