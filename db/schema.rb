@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 20160209144802) do
     t.string   "social_share_description"
     t.date     "date",                                    null: false
     t.string   "suggested_url"
-    t.boolean  "display",                  default: true, null: false
-    t.boolean  "home_page_highlight",      default: true, null: false
+    t.boolean  "display",                  default: true
+    t.boolean  "home_page_highlight",      default: true
     t.string   "slug"
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false

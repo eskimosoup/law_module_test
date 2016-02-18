@@ -24,10 +24,15 @@ RSpec.describe Article, type: :model, article: true do
   describe 'scopes', :scope do
     let(:article) { create(:article) }
     let(:hidden_article) { create(:article, display: false) }
+    let(:index_article) { create(:article, home_page_highlight: false) }
     let(:future_article) { create(:article, date: Date.tomorrow) }
 
     it 'only returns displayed' do
       expect(Article.displayed).not_to include hidden_article
+    end
+
+    it 'only returns home page displayed' do
+      expect(Article.home_page_highlight).not_to include index_article
     end
 
     it 'only returns past articles' do
